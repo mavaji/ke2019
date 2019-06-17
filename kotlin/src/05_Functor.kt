@@ -21,7 +21,9 @@ object FunctorTest {
 
 object OptionFunctor {
     fun <A, B> fmap(f: (A) -> B, fa: Optional<A>): Optional<B> {
-        return if (!fa.isPresent) Optional.empty() else
-            Optional.of(f(fa.get()))
+        return when {
+            !fa.isPresent -> Optional.empty()
+            else -> Optional.of(f(fa.get()))
+        }
     }
 }
