@@ -62,8 +62,8 @@ object PureFunctionTest {
         println("add3ffff 1 = ${add3ffff()}")
         println("**************************************************************")
 
-        println("add3 1 = ${add3(2)}")
-        println("add3f 1 = ${add3f(2)}")
+        println("add3 2 = ${add3(2)}")
+        println("add3f 2 = ${add3f(2)}")
         println("**************************************************************")
 
     }
