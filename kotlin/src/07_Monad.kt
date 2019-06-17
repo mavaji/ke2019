@@ -23,7 +23,9 @@ object MonadTest {
 
 object OptionMonad {
     fun <A, B> bind(f: (A) -> Optional<B>, fa: Optional<A>): Optional<B> {
-        return if (!fa.isPresent) Optional.empty() else
-            f(fa.get())
+        return when {
+            !fa.isPresent -> Optional.empty()
+            else -> f(fa.get())
+        }
     }
 }
