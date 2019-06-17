@@ -1,6 +1,4 @@
-import java.util.*
-
-object PureFunctionTest {
+object P01PureFunction {
 
     fun impure1(x: Int): Int {
         print("x=${x}")

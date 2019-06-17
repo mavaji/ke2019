@@ -1,6 +1,4 @@
-import java.util.*
-
-object RecursionTest {
+object P02Recursion {
     @JvmStatic
     fun main(args: Array<String>) {
         val xs = listOf(5, 3, 90, -1, 2)

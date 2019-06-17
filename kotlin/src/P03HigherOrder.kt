@@ -1,4 +1,4 @@
-object HigherOrderTest {
+object P03HigherOrder {
     @JvmStatic
     fun main(args: Array<String>) {
         println(h(f, ::g, 4))

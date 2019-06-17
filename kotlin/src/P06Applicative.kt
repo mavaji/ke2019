@@ -1,6 +1,6 @@
 import java.util.*
 
-object ApplicativeTest {
+object P06Applicative {
     @JvmStatic
     fun main(args: Array<String>) {
         val some2 = Optional.of(2)

@@ -1,6 +1,6 @@
 import java.util.*
 
-object MonadTest {
+object P07Monad {
     @JvmStatic
     fun main(args: Array<String>) {
         val some4 = Optional.of(4)

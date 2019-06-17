@@ -1,6 +1,6 @@
 import java.util.*
 
-object FunctorTest {
+object P05Functor {
     @JvmStatic
     fun main(args: Array<String>) {
         val some = Optional.of(2)

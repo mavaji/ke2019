@@ -1,4 +1,4 @@
-object PartialTest {
+object P04PartialApplication {
     @JvmStatic
     fun main(args: Array<String>) {
         val partial1 = f(1)
