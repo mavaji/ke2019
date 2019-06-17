@@ -1,5 +1,8 @@
+import Data.Typeable
+
 main :: IO ()
 main = do
+  print $ show $ typeOf $ fmapResult
   print $ applyResult
 
 some2 = Just 2
