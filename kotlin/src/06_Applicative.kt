@@ -18,7 +18,12 @@ object ApplicativeTest {
 
 object OptionApplicative {
     fun <A, B> apply(f: Optional<(A) -> B>, fa: Optional<A>): Optional<B> {
-        return if (!fa.isPresent) Optional.empty() else
-            Optional.of(f.get()(fa.get()))
+        return when {
+            !fa.isPresent -> Optional.empty()
+            else -> when {
+                !f.isPresent -> Optional.empty()
+                else -> Optional.of(f.get()(fa.get()))
+            }
+        }
     }
 }
