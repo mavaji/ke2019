@@ -21,8 +21,29 @@ object P07Monad {
     }
 }
 
-object OptionMonad {
-    fun <A, B> bind(f: (A) -> Optional<B>, fa: Optional<A>): Optional<B> {
+interface Monad : Applicative {
+    fun <A, B> bind(f: (A) -> Optional<B>, fa: Optional<A>): Optional<B>
+}
+
+object OptionMonad : Monad {
+    override fun <A, B> fmap(f: (A) -> B, fa: Optional<A>): Optional<B> {
+        return when {
+            !fa.isPresent -> Optional.empty()
+            else -> Optional.of(f(fa.get()))
+        }
+    }
+
+    override fun <A, B> apply(f: Optional<(A) -> B>, fa: Optional<A>): Optional<B> {
+        return when {
+            !fa.isPresent -> Optional.empty()
+            else -> when {
+                !f.isPresent -> Optional.empty()
+                else -> Optional.of(f.get()(fa.get()))
+            }
+        }
+    }
+
+    override fun <A, B> bind(f: (A) -> Optional<B>, fa: Optional<A>): Optional<B> {
         return when {
             !fa.isPresent -> Optional.empty()
             else -> f(fa.get())

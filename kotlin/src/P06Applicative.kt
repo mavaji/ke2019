@@ -16,8 +16,19 @@ object P06Applicative {
     val f: (Int) -> ((Int) -> Int) = { x -> { y -> x + y } }
 }
 
-object OptionApplicative {
-    fun <A, B> apply(f: Optional<(A) -> B>, fa: Optional<A>): Optional<B> {
+interface Applicative : Functor {
+    fun <A, B> apply(f: Optional<(A) -> B>, fa: Optional<A>): Optional<B>
+}
+
+object OptionApplicative : Applicative {
+    override fun <A, B> fmap(f: (A) -> B, fa: Optional<A>): Optional<B> {
+        return when {
+            !fa.isPresent -> Optional.empty()
+            else -> Optional.of(f(fa.get()))
+        }
+    }
+
+    override fun <A, B> apply(f: Optional<(A) -> B>, fa: Optional<A>): Optional<B> {
         return when {
             !fa.isPresent -> Optional.empty()
             else -> when {

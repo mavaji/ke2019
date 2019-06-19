@@ -19,8 +19,12 @@ object P05Functor {
     val f: (Int) -> Int = { x -> x + 2 }
 }
 
-object OptionFunctor {
-    fun <A, B> fmap(f: (A) -> B, fa: Optional<A>): Optional<B> {
+interface Functor {
+    fun <A, B> fmap(f: (A) -> B, fa: Optional<A>): Optional<B>
+}
+
+object OptionFunctor : Functor {
+    override fun <A, B> fmap(f: (A) -> B, fa: Optional<A>): Optional<B> {
         return when {
             !fa.isPresent -> Optional.empty()
             else -> Optional.of(f(fa.get()))
