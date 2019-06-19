@@ -13,11 +13,18 @@ object P06Applicative {
   val f: Int => Int => Int = x => y => x + y
 }
 
-trait Applicative[F[_]] {
+trait Applicative[F[_]] extends Functor[F] {
   def apply[A, B](f: F[A => B], fa: F[A]): F[B]
 }
 
 object OptionApplicative extends Applicative[Option] {
+  override def fmap[A, B](f: A => B, fa: Option[A]): Option[B] = {
+    fa match {
+      case None => None
+      case Some(a) => Some(f(a))
+    }
+  }
+
   override def apply[A, B](f: Option[A => B], fa: Option[A]): Option[B] = {
     fa match {
       case None => None

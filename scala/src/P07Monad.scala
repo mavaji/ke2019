@@ -19,11 +19,28 @@ object P07Monad {
     y => if (y == 0) None else Some(x / y)
 }
 
-trait Monad[M[_]] {
+trait Monad[M[_]] extends Applicative[M] {
   def bind[A, B](f: A => M[B], fa: M[A]): M[B]
 }
 
 object OptionMonad extends Monad[Option] {
+  override def fmap[A, B](f: A => B, fa: Option[A]): Option[B] = {
+    fa match {
+      case None => None
+      case Some(a) => Some(f(a))
+    }
+  }
+
+  override def apply[A, B](f: Option[A => B], fa: Option[A]): Option[B] = {
+    fa match {
+      case None => None
+      case Some(a) => f match {
+        case None => None
+        case Some(g) => Some(g(a))
+      }
+    }
+  }
+
   override def bind[A, B](f: A => Option[B], fa: Option[A]): Option[B] = {
     fa match {
       case None => None
