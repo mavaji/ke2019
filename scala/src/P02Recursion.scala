@@ -1,10 +1,9 @@
 object P02Recursion {
   def main(args: Array[String]): Unit = {
     val xs = List(5, 3, 90, -1, 2)
-    println(xs)
 
-    println(max(xs))
-    println(max(List()))
+    assert(max(xs) == 90)
+    assert(max(List()) == 0)
   }
 
   def max(xs: List[Int]): Int = {

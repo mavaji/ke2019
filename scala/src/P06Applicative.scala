@@ -7,7 +7,7 @@ object P06Applicative {
     println(fmapResult)
 
     val applyResult = OptionApplicative apply(fmapResult, some3)
-    println(applyResult)
+    assert(applyResult == Some(5))
   }
 
   val f: Int => Int => Int = x => y => x + y

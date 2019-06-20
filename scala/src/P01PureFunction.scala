@@ -39,9 +39,9 @@ object P01PureFunction {
 
   def add2ff(y: Int): Int = y + 3
 
-  val add3: Int => Int = ((w: Int) => (y: Int) => ((x: Int) => y + x) (1)) (2)
+  val add3: Int => Int = (w: Int) => ((y: Int) => ((x: Int) => y + x) (1)) (2)
 
-  def add3f(w: Int): Int = ((y: Int) => (x: Int) => y + x) (1)(2)
+  def add3f(w: Int): Int = ((y: Int) => ((x: Int) => y + x) (1)) (2)
 
   def add3ff(w: Int) = ((x: Int) => 2 + x) (1)
 
@@ -50,25 +50,20 @@ object P01PureFunction {
   def add3ffff() = 3
 
   def main(args: Array[String]): Unit = {
-    println(s"add1 1 = ${add1(1)}")
-    println(s"add1f 1 = ${add1f(1)}")
-    println("**************************************************************")
+    assert(add1(1) == 5)
+    assert(add1f(1) == 5)
 
-    println(s"add2 1 = ${add2(1)}")
-    println(s"add2f 1 = ${add2f(1)}")
-    println(s"add2ff 1 = ${add2ff(1)}")
-    println("**************************************************************")
+    assert(add2(1) == 4)
+    assert(add2f(1) == 4)
+    assert(add2ff(1) == 4)
 
-    println(s"add3 1 = ${add3(1)}")
-    println(s"add3f 1 = ${add3f(1)}")
-    println(s"add3ff 1 = ${add3ff(1)}")
-    println(s"add3fff 1 = ${add3fff(1)}")
-    println(s"add3ffff 1 = ${add3ffff()}")
-    println("**************************************************************")
+    assert(add3(1) == 3)
+    assert(add3f(1) == 3)
+    assert(add3ff(1) == 3)
+    assert(add3fff(1) == 3)
+    assert(add3ffff() == 3)
 
-    println(s"add3 2 = ${add3(2)}")
-    println(s"add3f 2 = ${add3f(2)}")
-    println("**************************************************************")
-
+    assert(add3(2) == 3)
+    assert(add3f(2) == 3)
   }
 }

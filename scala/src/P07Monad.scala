@@ -9,10 +9,10 @@ object P07Monad {
     println(fmapResult)
 
     val applyResult = OptionApplicative apply(fmapResult, some2)
-    println(applyResult)
+    assert(applyResult == Some(Some(2)))
 
     val bindResult = OptionMonad bind(fmapResult.get, some2)
-    println(bindResult)
+    assert(bindResult == Some(2))
   }
 
   val f: Int => Int => Option[Int] = x =>

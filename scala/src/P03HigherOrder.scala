@@ -1,6 +1,6 @@
 object P03HigherOrder {
   def main(args: Array[String]): Unit = {
-    println(h(f, g, 4))
+    assert(h(f, g, 4) == 2)
   }
 
   val f: Int => Int = x => x + 1

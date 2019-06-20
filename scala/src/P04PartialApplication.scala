@@ -5,9 +5,9 @@ object P04PartialApplication {
     println(partial1)
 
     val partial1_3 = partial1(3)
-    println(partial1_3)
+    assert(partial1_3 == 4)
 
-    println(f(4)(5))
+    assert(f(4)(5) == 9)
   }
 
   val f: Int => Int => Int = x => y => x + y

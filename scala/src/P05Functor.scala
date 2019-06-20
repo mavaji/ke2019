@@ -3,16 +3,13 @@ object P05Functor {
 
   def main(args: Array[String]): Unit = {
     val some = Option(2)
-    println(some map { x => f(x) })
+    assert((some map { x => f(x) }) == Some(4))
 
     val none = None
-    println(none)
-    println(none map { x => f(x) })
+    assert((none map { x => f(x) }) == None)
 
-    println("**************************************************")
-
-    println(OptionFunctor fmap(f, some))
-    println(OptionFunctor fmap(f, none))
+    assert((OptionFunctor fmap(f, some)) == Some(4))
+    assert((OptionFunctor fmap(f, none)) == None)
   }
 }
 
