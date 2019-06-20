@@ -1,7 +1,5 @@
 object P07Monad {
   def main(args: Array[String]): Unit = {
-
-
     val some4 = Some(4)
     val some2 = Some(2)
 
