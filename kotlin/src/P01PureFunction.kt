@@ -20,8 +20,10 @@ object P01PureFunction {
         print(x + 3)
     }
 
+    var y = 1
+
     fun impure5(): Int {
-        return x + 1
+        return y + 1
     }
 
     fun impure6(x: Int): Int {

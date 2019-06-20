@@ -1,7 +1,7 @@
 object P01PureFunction {
 
   def impure1(x: Int): Int = {
-    print(s"x=${x}")
+    print(s"x=$x")
     x
   }
 
@@ -14,12 +14,14 @@ object P01PureFunction {
     x
   }
 
-  def impure4(x: Int) = {
+  def impure4(x: Int): Unit = {
     print(x + 3)
   }
 
+  var y = 1
+
   def impure5(): Int = {
-    x + 1
+    y + 1
   }
 
   def impure6(x: Int): Int = {
