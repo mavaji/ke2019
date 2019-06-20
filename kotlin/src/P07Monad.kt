@@ -1,4 +1,5 @@
 import java.util.*
+import kotlin.test.assertEquals
 
 object P07Monad {
     @JvmStatic
@@ -10,10 +11,10 @@ object P07Monad {
         println(fmapResult)
 
         val applyResult = OptionApplicative.apply(fmapResult, some2)
-        println(applyResult)
+        assertEquals(Optional.of(Optional.of(2)), applyResult)
 
         val bindResult = OptionMonad.bind(fmapResult.get(), some2)
-        println(bindResult)
+        assertEquals(Optional.of(2), bindResult)
     }
 
     val f: (Int) -> ((Int) -> Optional<Int>) = { x ->

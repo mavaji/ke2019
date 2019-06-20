@@ -1,11 +1,12 @@
+import kotlin.test.assertEquals
+
 object P02Recursion {
     @JvmStatic
     fun main(args: Array<String>) {
         val xs = listOf(5, 3, 90, -1, 2)
-        println(xs)
 
-        println(max(xs))
-        println(max(emptyList()))
+        assertEquals(90, max(xs))
+        assertEquals(0, max(emptyList()))
     }
 
     fun max(xs: List<Int>): Int {

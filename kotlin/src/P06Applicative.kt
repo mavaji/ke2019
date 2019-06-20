@@ -1,4 +1,5 @@
 import java.util.*
+import kotlin.test.assertEquals
 
 object P06Applicative {
     @JvmStatic
@@ -10,7 +11,7 @@ object P06Applicative {
         println(fmapResult)
 
         val applyResult = OptionApplicative.apply(fmapResult, some3)
-        println(applyResult)
+        assertEquals(Optional.of(5), applyResult)
     }
 
     val f: (Int) -> ((Int) -> Int) = { x -> { y -> x + y } }

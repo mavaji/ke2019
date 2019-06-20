@@ -1,3 +1,5 @@
+import kotlin.test.assertEquals
+
 object P01PureFunction {
 
     fun impure1(x: Int): Int {
@@ -44,25 +46,20 @@ object P01PureFunction {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        println("add1 1 = ${add1(1)}")
-        println("add1f 1 = ${add1f(1)}")
-        println("**************************************************************")
+        assertEquals(5, add1(1))
+        assertEquals(5, add1f(1))
 
-        println("add2 1 = ${add2(1)}")
-        println("add2f 1 = ${add2f(1)}")
-        println("add2ff 1 = ${add2ff(1)}")
-        println("**************************************************************")
+        assertEquals(4, add2(1))
+        assertEquals(4, add2f(1))
+        assertEquals(4, add2ff(1))
 
-        println("add3 1 = ${add3(1)}")
-        println("add3f 1 = ${add3f(1)}")
-        println("add3ff 1 = ${add3ff(1)}")
-        println("add3fff 1 = ${add3fff(1)}")
-        println("add3ffff 1 = ${add3ffff()}")
-        println("**************************************************************")
+        assertEquals(3, add3(1))
+        assertEquals(3, add3f(1))
+        assertEquals(3, add3ff(1))
+        assertEquals(3, add3fff(1))
+        assertEquals(3, add3ffff())
 
-        println("add3 2 = ${add3(2)}")
-        println("add3f 2 = ${add3f(2)}")
-        println("**************************************************************")
-
+        assertEquals(3, add3(2))
+        assertEquals(3, add3f(2))
     }
 }

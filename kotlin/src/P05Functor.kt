@@ -1,19 +1,17 @@
 import java.util.*
+import kotlin.test.assertEquals
 
 object P05Functor {
     @JvmStatic
     fun main(args: Array<String>) {
-        val some = Optional.of(2)
-        println(some.map { x -> f(x) })
+        val some2 = Optional.of(2)
+        assertEquals(Optional.of(4), some2.map { x -> f(x) })
 
         val none = Optional.empty<Int>()
-        println(none)
-        println(none.map { x -> f(x) })
+        assertEquals(Optional.empty(), none.map { x -> f(x) })
 
-        println("**************************************************")
-
-        println(OptionFunctor.fmap(f, some))
-        println(OptionFunctor.fmap(f, none))
+        assertEquals(Optional.of(4), OptionFunctor.fmap(f, some2))
+        assertEquals(Optional.empty(), OptionFunctor.fmap(f, none))
     }
 
     val f: (Int) -> Int = { x -> x + 2 }

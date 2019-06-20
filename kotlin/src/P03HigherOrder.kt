@@ -1,7 +1,9 @@
+import kotlin.test.assertEquals
+
 object P03HigherOrder {
     @JvmStatic
     fun main(args: Array<String>) {
-        println(h(f, ::g, 4))
+        assertEquals(2, h(f, ::g, 4))
     }
 
     val f: (Int) -> Int = { x -> x + 1 }
