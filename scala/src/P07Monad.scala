@@ -10,6 +10,7 @@ object P07Monad {
 
     val applyResult = OptionApplicative apply(fmapResult, some2)
     assert(applyResult == Some(Some(2)))
+    assert((applyResult flatMap { x => x }) == Some(2))
 
     val bindResult = OptionMonad bind(fmapResult.get, some2)
     assert(bindResult == Some(2))

@@ -12,6 +12,7 @@ object P07Monad {
 
         val applyResult = OptionApplicative.apply(fmapResult, some2)
         assertEquals(Optional.of(Optional.of(2)), applyResult)
+        assertEquals(Optional.of(2), applyResult.flatMap { x -> x })
 
         val bindResult = OptionMonad.bind(fmapResult.get(), some2)
         assertEquals(Optional.of(2), bindResult)
