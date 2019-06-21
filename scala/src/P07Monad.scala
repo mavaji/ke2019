@@ -10,7 +10,7 @@ object P07Monad {
     assert(applyResult == Some(Some(2)))
     assert((applyResult flatMap { x => x }) == Some(2))
 
-    val bindResult = OptionMonad bind(fmapResult.get, some2)
+    val bindResult = OptionMonad bind(some2, fmapResult.get)
     assert(bindResult == Some(2))
   }
 
@@ -19,7 +19,7 @@ object P07Monad {
 }
 
 trait Monad[M[_]] extends Applicative[M] {
-  def bind[A, B](f: A => M[B], fa: M[A]): M[B]
+  def bind[A, B](ma: M[A], f: A => M[B]): M[B]
 }
 
 object OptionMonad extends Monad[Option] {
@@ -40,8 +40,8 @@ object OptionMonad extends Monad[Option] {
     }
   }
 
-  override def bind[A, B](f: A => Option[B], fa: Option[A]): Option[B] = {
-    fa match {
+  override def bind[A, B](ma: Option[A], f: A => Option[B]): Option[B] = {
+    ma match {
       case None => None
       case Some(a) => f(a)
     }

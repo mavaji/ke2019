@@ -14,7 +14,7 @@ object P07Monad {
         assertEquals(Optional.of(Optional.of(2)), applyResult)
         assertEquals(Optional.of(2), applyResult.flatMap { x -> x })
 
-        val bindResult = OptionMonad.bind(fmapResult.get(), some2)
+        val bindResult = OptionMonad.bind(some2, fmapResult.get())
         assertEquals(Optional.of(2), bindResult)
     }
 
@@ -24,7 +24,7 @@ object P07Monad {
 }
 
 interface Monad : Applicative {
-    fun <A, B> bind(f: (A) -> Optional<B>, fa: Optional<A>): Optional<B>
+    fun <A, B> bind(ma: Optional<A>, f: (A) -> Optional<B>): Optional<B>
 }
 
 object OptionMonad : Monad {
@@ -45,10 +45,10 @@ object OptionMonad : Monad {
         }
     }
 
-    override fun <A, B> bind(f: (A) -> Optional<B>, fa: Optional<A>): Optional<B> {
+    override fun <A, B> bind(ma: Optional<A>, f: (A) -> Optional<B>): Optional<B> {
         return when {
-            !fa.isPresent -> Optional.empty()
-            else -> f(fa.get())
+            !ma.isPresent -> Optional.empty()
+            else -> f(ma.get())
         }
     }
 }
