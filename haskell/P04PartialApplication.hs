@@ -1,10 +1,11 @@
 import Data.Typeable
+import Test.HUnit.Base
 
 main :: IO ()
 main = do
-  print $ show $ typeOf $ partial1
-  print $ partial1_3
-  print $ f 4 5
+  show (typeOf partial1) @?= "Int -> Int"
+  partial1_3 @?= 4
+  f 4 5 @?= 9
 
 partial1 = f 1
 

@@ -1,19 +1,21 @@
+import Test.HUnit.Base
+
 main :: IO ()
 main = do
-  print ("add1 1 = " ++ show (add1 1))
-  print ("add1' 1 = " ++ show (add1' 1))
-  print ("**************************************************************")
-  print ("add2 1 = " ++ show (add2 1))
-  print ("add2' 1 = " ++ show (add2' 1))
-  print ("add2'' 1 = " ++ show (add2'' 1))
-  print ("**************************************************************")
-  print ("add3 1 = " ++ show (add3 1))
-  print ("add3' 1 = " ++ show (add3' 1))
-  print ("add3'' 1 = " ++ show (add3'' 1))
-  print ("add3''' 1 = " ++ show (add3''' 1))
-  print ("add3'''' 1 = " ++ show (add3''''))
-  print ("**************************************************************")
-  print ("add3 2 = " ++ show (add3 2))
+  add1 1 @?= 5
+  add1' 1 @?= 5
+
+  add2 1 @?= 4
+  add2' 1 @?= 4
+  add2'' 1 @?= 4
+
+  add3 1 @?= 3
+  add3' 1 @?= 3
+  add3'' 1 @?= 3
+  add3''' 1 @?= 3
+  add3'''' @?= 3
+
+  add3 2 @?= 3
 
 x = 4
 

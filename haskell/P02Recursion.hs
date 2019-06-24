@@ -1,8 +1,9 @@
+import Test.HUnit.Base
+
 main :: IO ()
 main = do
-  print $ xs
-  print $ max' $ xs
-  print $ max' []
+  max' xs @?= 90
+  max' [] @?= 0
 
 xs = [5, 3, 90, -1, 2]
 

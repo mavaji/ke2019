@@ -1,6 +1,8 @@
+import Test.HUnit.Base
+
 main :: IO ()
 main = do
-    print $ h f  g 4
+    h f g 4 @?= 2
 
 f :: Int -> Int
 f x = x + 1

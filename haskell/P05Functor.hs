@@ -1,12 +1,14 @@
+import Test.HUnit.Base
+
 main :: IO ()
 main = do
-  print $ fmap' f some
-  print $ fmap' f none
+  fmap' f some2 @?= Just 4
+  fmap' f none @?= Nothing
 
 f :: Int -> Int
 f x = x + 2
 
-some = Just 2
+some2 = Just 2
 
 none = Nothing
 

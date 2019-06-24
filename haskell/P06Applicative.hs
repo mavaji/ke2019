@@ -1,9 +1,10 @@
 import Data.Typeable
+import Test.HUnit.Base
 
 main :: IO ()
 main = do
-  print $ show $ typeOf $ fmapResult
-  print $ applyResult
+  show (typeOf fmapResult) @?= "Maybe (Int -> Int)"
+  applyResult @?= Just 5
 
 some2 = Just 2
 some3 = Just 3
