@@ -2,6 +2,8 @@
 
 Materials for Presentation at [Kotlin-Everywhere](https://evand.com/events/kotlin-everywhere)
 
+Videos : [YouTube](https://www.youtube.com/playlist?list=PLT2xIm2X7W7inMr__YgqSSXpk77D69khz)
+
 #### Resources:
 * [Functional programming in Kotlin](https://kotlinlang.org/docs/tutorials/kotlin-for-py/functional-programming.html)
 * [Functors, Applicatives, And Monads In Pictures](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
