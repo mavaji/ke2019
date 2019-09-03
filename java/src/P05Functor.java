@@ -6,7 +6,7 @@ public class P05Functor {
         var some2 = Optional.of(2);
         assert Optional.of(4).equals(some2.map(x -> f.apply(x)));
 
-        Optional<Integer> none = Optional.empty();
+        var none = Optional.<Integer>empty();
         assert Optional.empty().equals(none.map(x -> f.apply(x)));
 
         assert Optional.of(4).equals(OPTION_FUNCTOR.fmap(f, some2));
